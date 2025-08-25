@@ -80,7 +80,7 @@ export function AuthDialog({
   const handleAuthSelect = (authMethod: AuthType) => {
     const error = validateAuthMethod(authMethod);
     if (error) {
-      if (authMethod === AuthType.USE_OPENAI && !process.env.OPENAI_API_KEY) {
+      if (authMethod === AuthType.USE_OPENAI && !process.env.LLAMA_API_KEY) {
         setShowOpenAIKeyPrompt(true);
         setErrorMessage(null);
       } else {

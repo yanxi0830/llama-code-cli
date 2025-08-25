@@ -27,11 +27,11 @@ describe('validateNonInterActiveAuth', () => {
     originalEnvGeminiApiKey = process.env.GEMINI_API_KEY;
     originalEnvVertexAi = process.env.GOOGLE_GENAI_USE_VERTEXAI;
     originalEnvGcp = process.env.GOOGLE_GENAI_USE_GCA;
-    originalEnvOpenAiApiKey = process.env.OPENAI_API_KEY;
+    originalEnvOpenAiApiKey = process.env.LLAMA_API_KEY;
     delete process.env.GEMINI_API_KEY;
     delete process.env.GOOGLE_GENAI_USE_VERTEXAI;
     delete process.env.GOOGLE_GENAI_USE_GCA;
-    delete process.env.OPENAI_API_KEY;
+    delete process.env.LLAMA_API_KEY;
     consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     processExitSpy = vi.spyOn(process, 'exit').mockImplementation((code) => {
       throw new Error(`process.exit(${code}) called`);
@@ -56,9 +56,9 @@ describe('validateNonInterActiveAuth', () => {
       delete process.env.GOOGLE_GENAI_USE_GCA;
     }
     if (originalEnvOpenAiApiKey !== undefined) {
-      process.env.OPENAI_API_KEY = originalEnvOpenAiApiKey;
+      process.env.LLAMA_API_KEY = originalEnvOpenAiApiKey;
     } else {
-      delete process.env.OPENAI_API_KEY;
+      delete process.env.LLAMA_API_KEY;
     }
     vi.restoreAllMocks();
   });
@@ -109,8 +109,8 @@ describe('validateNonInterActiveAuth', () => {
     expect(refreshAuthMock).toHaveBeenCalledWith(AuthType.USE_GEMINI);
   });
 
-  it('uses USE_OPENAI if OPENAI_API_KEY is set', async () => {
-    process.env.OPENAI_API_KEY = 'fake-openai-key';
+  it('uses USE_OPENAI if LLAMA_API_KEY is set', async () => {
+    process.env.LLAMA_API_KEY = 'fake-openai-key';
     const nonInteractiveConfig: NonInteractiveConfig = {
       refreshAuth: refreshAuthMock,
     };

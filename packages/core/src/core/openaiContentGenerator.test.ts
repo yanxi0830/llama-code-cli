@@ -52,7 +52,7 @@ describe('OpenAIContentGenerator', () => {
     vi.clearAllMocks();
 
     // Mock environment variables
-    vi.stubEnv('OPENAI_BASE_URL', '');
+    vi.stubEnv('LLAMA_API_BASE_URL', '');
 
     // Mock config
     mockConfig = {
@@ -2808,7 +2808,7 @@ describe('OpenAIContentGenerator', () => {
 
     it('should NOT include metadata for other base URLs', async () => {
       // Mock environment to set a different base URL
-      vi.stubEnv('OPENAI_BASE_URL', 'https://api.openai.com/v1');
+      vi.stubEnv('LLAMA_API_BASE_URL', 'https://api.openai.com/v1');
 
       const otherBaseUrlConfig = {
         getContentGeneratorConfig: vi.fn().mockReturnValue({
@@ -3098,7 +3098,7 @@ describe('OpenAIContentGenerator', () => {
 
     it('should handle undefined baseURL gracefully', async () => {
       // Ensure no base URL is set
-      vi.stubEnv('OPENAI_BASE_URL', '');
+      vi.stubEnv('LLAMA_API_BASE_URL', '');
 
       const noBaseUrlConfig = {
         getContentGeneratorConfig: vi.fn().mockReturnValue({
@@ -3275,7 +3275,7 @@ describe('OpenAIContentGenerator', () => {
     it('should add cache control to system message for DashScope providers', async () => {
       // Mock environment to set dashscope base URL
       vi.stubEnv(
-        'OPENAI_BASE_URL',
+        'LLAMA_API_BASE_URL',
         'https://dashscope.aliyuncs.com/compatible-mode/v1',
       );
 
@@ -3356,7 +3356,7 @@ describe('OpenAIContentGenerator', () => {
     it('should add cache control to last message for DashScope providers', async () => {
       // Mock environment to set dashscope base URL
       vi.stubEnv(
-        'OPENAI_BASE_URL',
+        'LLAMA_API_BASE_URL',
         'https://dashscope.aliyuncs.com/compatible-mode/v1',
       );
 

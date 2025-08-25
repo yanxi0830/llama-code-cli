@@ -4,10 +4,10 @@
 
 ![Qwen Code Screenshot](./docs/assets/qwen-screenshot.png)
 
-[![npm version](https://img.shields.io/npm/v/@qwen-code/qwen-code.svg)](https://www.npmjs.com/package/@qwen-code/qwen-code)
+[![npm version](https://img.shields.io/npm/v/llama-code-cli.svg)](https://www.npmjs.com/package/llama-code-cli)
 [![License](https://img.shields.io/github/license/QwenLM/qwen-code.svg)](./LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org/)
-[![Downloads](https://img.shields.io/npm/dm/@qwen-code/qwen-code.svg)](https://www.npmjs.com/package/@qwen-code/qwen-code)
+[![Downloads](https://img.shields.io/npm/dm/llama-code-cli.svg)](https://www.npmjs.com/package/llama-code-cli)
 
 **AI-powered command-line workflow tool for developers**
 
@@ -39,7 +39,7 @@ Get started with Qwen Code at no cost using any of these free options:
 
 - **2,000 requests per day** with no token limits
 - **60 requests per minute** rate limit
-- Simply run `qwen` and authenticate with your qwen.ai account
+- Simply run `llama` and authenticate with your qwen.ai account
 - Automatic credential management and refresh
 - Use `/auth` command to switch to Qwen OAuth if you have initialized with OpenAI compatible mode
 
@@ -72,8 +72,8 @@ curl -qL https://www.npmjs.com/install.sh | sh
 ### Install from npm
 
 ```bash
-npm install -g @qwen-code/qwen-code@latest
-qwen --version
+npm install -g llama-code-cli@latest
+llama --version
 ```
 
 ### Install from source
@@ -89,7 +89,7 @@ npm install -g .
 
 ```bash
 # Start Qwen Code
-qwen
+llama
 
 # Example commands
 > Explain this codebase structure
@@ -103,7 +103,7 @@ Control your token usage with configurable session limits to optimize costs and 
 
 #### Configure Session Token Limit
 
-Create or edit `.qwen/settings.json` in your home directory:
+Create or edit `.llama/settings.json` in your home directory:
 
 ```json
 {
@@ -129,7 +129,7 @@ The easiest way to get started - completely free with generous quotas:
 
 ```bash
 # Just run this command and follow the browser authentication
-qwen
+llama
 ```
 
 **What happens:**
@@ -156,17 +156,17 @@ Use API keys for OpenAI or other compatible providers:
 1. **Environment Variables**
 
    ```bash
-   export OPENAI_API_KEY="your_api_key_here"
-   export OPENAI_BASE_URL="your_api_endpoint"
-   export OPENAI_MODEL="your_model_choice"
+   export LLAMA_API_KEY="your_api_key_here"
+   export LLAMA_API_BASE_URL="your_api_endpoint"
+   export LLAMA_API_MODEL="your_model_choice"
    ```
 
 2. **Project `.env` File**
    Create a `.env` file in your project root:
    ```env
-   OPENAI_API_KEY=your_api_key_here
-   OPENAI_BASE_URL=your_api_endpoint
-   OPENAI_MODEL=your_model_choice
+   LLAMA_API_KEY=your_api_key_here
+   LLAMA_API_BASE_URL=your_api_endpoint
+   LLAMA_API_MODEL=your_model_choice
    ```
 
 **API Provider Options**
@@ -182,9 +182,9 @@ Use API keys for OpenAI or other compatible providers:
 **Option 1: Alibaba Cloud Bailian** ([Apply for API Key](https://bailian.console.aliyun.com/))
 
 ```bash
-export OPENAI_API_KEY="your_api_key_here"
-export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
-export OPENAI_MODEL="qwen3-coder-plus"
+export LLAMA_API_KEY="your_api_key_here"
+export LLAMA_API_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+export LLAMA_API_MODEL="qwen3-coder-plus"
 ```
 
 **Option 2: ModelScope (Free Tier)** ([Apply for API Key](https://modelscope.cn/docs/model-service/API-Inference/intro))
@@ -193,9 +193,9 @@ export OPENAI_MODEL="qwen3-coder-plus"
 - ⚠️ Connect your Aliyun account to avoid authentication errors
 
 ```bash
-export OPENAI_API_KEY="your_api_key_here"
-export OPENAI_BASE_URL="https://api-inference.modelscope.cn/v1"
-export OPENAI_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
+export LLAMA_API_KEY="your_api_key_here"
+export LLAMA_API_BASE_URL="https://api-inference.modelscope.cn/v1"
+export LLAMA_API_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
 ```
 
 </details>
@@ -206,17 +206,17 @@ export OPENAI_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
 **Option 1: Alibaba Cloud ModelStudio** ([Apply for API Key](https://modelstudio.console.alibabacloud.com/))
 
 ```bash
-export OPENAI_API_KEY="your_api_key_here"
-export OPENAI_BASE_URL="https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
-export OPENAI_MODEL="qwen3-coder-plus"
+export LLAMA_API_KEY="your_api_key_here"
+export LLAMA_API_BASE_URL="https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+export LLAMA_API_MODEL="qwen3-coder-plus"
 ```
 
 **Option 2: OpenRouter (Free Tier Available)** ([Apply for API Key](https://openrouter.ai/))
 
 ```bash
-export OPENAI_API_KEY="your_api_key_here"
-export OPENAI_BASE_URL="https://openrouter.ai/api/v1"
-export OPENAI_MODEL="qwen/qwen3-coder:free"
+export LLAMA_API_KEY="your_api_key_here"
+export LLAMA_API_BASE_URL="https://openrouter.ai/api/v1"
+export LLAMA_API_MODEL="qwen/qwen3-coder:free"
 ```
 
 </details>
@@ -227,7 +227,7 @@ export OPENAI_MODEL="qwen/qwen3-coder:free"
 
 ```bash
 cd your-project/
-qwen
+llama
 
 # Architecture analysis
 > Describe the main pieces of this system's architecture

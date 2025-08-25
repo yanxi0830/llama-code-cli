@@ -85,9 +85,9 @@ export function createContentGeneratorConfig(
   const googleCloudLocation = process.env.GOOGLE_CLOUD_LOCATION || undefined;
 
   // openai auth
-  const openaiApiKey = process.env.OPENAI_API_KEY;
-  const openaiBaseUrl = process.env.OPENAI_BASE_URL || undefined;
-  const openaiModel = process.env.OPENAI_MODEL || undefined;
+  const openaiApiKey = process.env.LLAMA_API_KEY;
+  const openaiBaseUrl = process.env.LLAMA_API_BASE_URL || undefined;
+  const openaiModel = process.env.LLAMA_API_MODEL || undefined;
 
   // Use runtime model from config if available; otherwise, fall back to parameter or default
   const effectiveModel = config.getModel() || DEFAULT_GEMINI_MODEL;

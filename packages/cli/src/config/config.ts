@@ -83,11 +83,11 @@ export async function parseArguments(): Promise<CliArgs> {
   const yargsInstance = yargs(hideBin(process.argv))
     // Set locale to English for consistent output, especially in tests
     .locale('en')
-    .scriptName('qwen')
+    .scriptName('llama')
     .usage(
-      'Usage: qwen [options] [command]\n\nQwen Code - Launch an interactive CLI, use -p/--prompt for non-interactive mode',
+      'Usage: llama [options] [command]\n\nLlama Code - Launch an interactive CLI, use -p/--prompt for non-interactive mode',
     )
-    .command('$0', 'Launch Qwen Code', (yargsInstance) =>
+    .command('$0', 'Launch Llama Code', (yargsInstance) =>
       yargsInstance
         .option('model', {
           alias: 'm',
@@ -357,12 +357,12 @@ export async function loadCliConfig(
   );
   // Handle OpenAI API key from command line
   if (argv.openaiApiKey) {
-    process.env.OPENAI_API_KEY = argv.openaiApiKey;
+    process.env.LLAMA_API_KEY = argv.openaiApiKey;
   }
 
   // Handle OpenAI base URL from command line
   if (argv.openaiBaseUrl) {
-    process.env.OPENAI_BASE_URL = argv.openaiBaseUrl;
+    process.env.LLAMA_API_BASE_URL = argv.openaiBaseUrl;
   }
 
   // Handle Tavily API key from command line

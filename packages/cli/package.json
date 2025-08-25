@@ -1,15 +1,15 @@
 {
-  "name": "@qwen-code/qwen-code",
+  "name": "llama-code-cli",
   "version": "0.0.8",
-  "description": "Qwen Code",
+  "description": "Llama Code CLI",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QwenLM/qwen-code.git"
+    "url": "git+https://github.com/yanxi0830/llama-code-cli.git"
   },
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "qwen": "dist/index.js"
+    "llama": "dist/index.js"
   },
   "scripts": {
     "build": "node ../../scripts/build_package.js",
@@ -25,7 +25,7 @@
     "dist"
   ],
   "config": {
-    "sandboxImageUri": "ghcr.io/qwenlm/qwen-code:0.0.8"
+    "sandboxImageUri": "ghcr.io/yanxi0830/llama-code-cli:0.0.8"
   },
   "dependencies": {
     "@google/genai": "1.9.0",

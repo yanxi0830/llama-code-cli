@@ -107,9 +107,9 @@ jobs:
           ADDITIONAL_INSTRUCTIONS: '${{ steps.get_pr.outputs.additional_instructions || steps.get_pr_comment.outputs.additional_instructions }}'
           REPOSITORY: '${{ github.repository }}'
         with:
-          OPENAI_API_KEY: '${{ secrets.OPENAI_API_KEY }}'
-          OPENAI_BASE_URL: '${{ secrets.OPENAI_BASE_URL }}'
-          OPENAI_MODEL: '${{ secrets.OPENAI_MODEL }}'
+          LLAMA_API_KEY: '${{ secrets.LLAMA_API_KEY }}'
+          LLAMA_API_BASE_URL: '${{ secrets.LLAMA_API_BASE_URL }}'
+          LLAMA_API_MODEL: '${{ secrets.LLAMA_API_MODEL }}'
           settings_json: |
             {
               "coreTools": [
