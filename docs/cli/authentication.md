@@ -42,18 +42,18 @@ Qwen Code supports two main authentication methods to access AI models. Choose t
     a) **Environment Variables:**
 
     ```bash
-    export OPENAI_API_KEY="your_api_key_here"
-    export OPENAI_BASE_URL="your_api_endpoint"  # Optional
-    export OPENAI_MODEL="your_model_choice"     # Optional
+    export LLAMA_API_KEY="your_api_key_here"
+    export LLAMA_API_BASE_URL="your_api_endpoint"  # Optional
+    export LLAMA_API_MODEL="your_model_choice"     # Optional
     ```
 
     b) **Project `.env` File:**
     Create a `.env` file in your project root:
 
     ```env
-    OPENAI_API_KEY=your_api_key_here
-    OPENAI_BASE_URL=your_api_endpoint
-    OPENAI_MODEL=your_model_choice
+    LLAMA_API_KEY=your_api_key_here
+    LLAMA_API_BASE_URL=your_api_endpoint
+    LLAMA_API_MODEL=your_model_choice
     ```
 
     **Supported Providers:**
@@ -99,9 +99,9 @@ Qwen Code automatically loads environment variables from the **first** `.env` fi
 ```bash
 mkdir -p .qwen
 cat >> .qwen/.env <<'EOF'
-OPENAI_API_KEY="your-api-key"
-OPENAI_BASE_URL="https://api-inference.modelscope.cn/v1"
-OPENAI_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
+LLAMA_API_KEY="your-api-key"
+LLAMA_API_BASE_URL="https://api-inference.modelscope.cn/v1"
+LLAMA_API_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
 EOF
 ```
 
@@ -110,9 +110,9 @@ EOF
 ```bash
 mkdir -p ~/.qwen
 cat >> ~/.qwen/.env <<'EOF'
-OPENAI_API_KEY="your-api-key"
-OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
-OPENAI_MODEL="qwen3-coder-plus"
+LLAMA_API_KEY="your-api-key"
+LLAMA_API_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+LLAMA_API_MODEL="qwen3-coder-plus"
 EOF
 ```
 
@@ -125,16 +125,16 @@ The CLI will automatically detect if it is running in a non-interactive terminal
 OpenAI-compatible API method if configured:
 
 1.  **OpenAI-Compatible API:**
-    - Set the `OPENAI_API_KEY` environment variable.
-    - Optionally set `OPENAI_BASE_URL` and `OPENAI_MODEL` for custom endpoints.
+    - Set the `LLAMA_API_KEY` environment variable.
+    - Optionally set `LLAMA_API_BASE_URL` and `LLAMA_API_MODEL` for custom endpoints.
     - The CLI will use these credentials to authenticate with the API provider.
 
 **Example for headless environments:**
 
 ```bash
-export OPENAI_API_KEY="your-api-key"
-export OPENAI_BASE_URL="https://api-inference.modelscope.cn/v1"
-export OPENAI_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
+export LLAMA_API_KEY="your-api-key"
+export LLAMA_API_BASE_URL="https://api-inference.modelscope.cn/v1"
+export LLAMA_API_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
 
 # Run Qwen Code
 qwen

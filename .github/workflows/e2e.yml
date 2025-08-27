@@ -53,9 +53,9 @@ jobs:
 
       - name: 'Run E2E tests'
         env:
-          OPENAI_API_KEY: '${{ secrets.OPENAI_API_KEY }}'
-          OPENAI_BASE_URL: '${{ secrets.OPENAI_BASE_URL }}'
-          OPENAI_MODEL: '${{ secrets.OPENAI_MODEL }}'
+          LLAMA_API_KEY: '${{ secrets.LLAMA_API_KEY }}'
+          LLAMA_API_BASE_URL: '${{ secrets.LLAMA_API_BASE_URL }}'
+          LLAMA_API_MODEL: '${{ secrets.LLAMA_API_MODEL }}'
           KEEP_OUTPUT: 'true'
           SANDBOX: '${{ matrix.sandbox }}'
           VERBOSE: 'true'
@@ -85,7 +85,7 @@ jobs:
 
       - name: 'Run E2E tests'
         env:
-          OPENAI_API_KEY: '${{ secrets.OPENAI_API_KEY }}'
-          OPENAI_BASE_URL: '${{ secrets.OPENAI_BASE_URL }}'
-          OPENAI_MODEL: '${{ secrets.OPENAI_MODEL }}'
+          LLAMA_API_KEY: '${{ secrets.LLAMA_API_KEY }}'
+          LLAMA_API_BASE_URL: '${{ secrets.LLAMA_API_BASE_URL }}'
+          LLAMA_API_MODEL: '${{ secrets.LLAMA_API_MODEL }}'
         run: 'npm run test:e2e'

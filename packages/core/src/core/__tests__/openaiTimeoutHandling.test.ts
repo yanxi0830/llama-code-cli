@@ -36,7 +36,7 @@ describe('OpenAIContentGenerator Timeout Handling', () => {
     vi.clearAllMocks();
 
     // Mock environment variables
-    vi.stubEnv('OPENAI_BASE_URL', '');
+    vi.stubEnv('LLAMA_API_BASE_URL', '');
 
     // Mock config
     mockConfig = {

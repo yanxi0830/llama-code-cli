@@ -173,8 +173,8 @@ function entrypoint(workdir: string): string[] {
         ? 'npm run debug --'
         : 'npm rebuild && npm run start --'
       : process.env.DEBUG
-        ? `node --inspect-brk=0.0.0.0:${process.env.DEBUG_PORT || '9229'} $(which qwen)`
-        : 'qwen';
+        ? `node --inspect-brk=0.0.0.0:${process.env.DEBUG_PORT || '9229'} $(which llama)`
+        : 'llama';
 
   const args = [...shellCmds, cliCmd, ...cliArgs];
 
@@ -569,19 +569,19 @@ export async function start_sandbox(
       args.push('--env', `GOOGLE_API_KEY=${process.env.GOOGLE_API_KEY}`);
     }
 
-    // copy OPENAI_API_KEY and related env vars for Qwen
-    if (process.env.OPENAI_API_KEY) {
-      args.push('--env', `OPENAI_API_KEY=${process.env.OPENAI_API_KEY}`);
+    // copy LLAMA_API_KEY and related env vars for Qwen
+    if (process.env.LLAMA_API_KEY) {
+      args.push('--env', `LLAMA_API_KEY=${process.env.LLAMA_API_KEY}`);
     }
     // copy TAVILY_API_KEY for web search tool
     if (process.env.TAVILY_API_KEY) {
       args.push('--env', `TAVILY_API_KEY=${process.env.TAVILY_API_KEY}`);
     }
-    if (process.env.OPENAI_BASE_URL) {
-      args.push('--env', `OPENAI_BASE_URL=${process.env.OPENAI_BASE_URL}`);
+    if (process.env.LLAMA_API_BASE_URL) {
+      args.push('--env', `LLAMA_API_BASE_URL=${process.env.LLAMA_API_BASE_URL}`);
     }
-    if (process.env.OPENAI_MODEL) {
-      args.push('--env', `OPENAI_MODEL=${process.env.OPENAI_MODEL}`);
+    if (process.env.LLAMA_API_MODEL) {
+      args.push('--env', `LLAMA_API_MODEL=${process.env.LLAMA_API_MODEL}`);
     }
 
     // copy GOOGLE_GENAI_USE_VERTEXAI
