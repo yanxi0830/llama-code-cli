@@ -571,7 +571,7 @@ describe('Hierarchical Memory Loading (config.ts) - Placeholder Suite', () => {
           name: 'ext1',
           version: '1.0.0',
         },
-        contextFiles: ['/path/to/ext1/QWEN.md'],
+        contextFiles: ['/path/to/ext1/LLAMA.md'],
       },
       {
         path: '/path/to/ext2',
@@ -601,7 +601,7 @@ describe('Hierarchical Memory Loading (config.ts) - Placeholder Suite', () => {
       false,
       expect.any(Object),
       [
-        '/path/to/ext1/QWEN.md',
+        '/path/to/ext1/LLAMA.md',
         '/path/to/ext3/context1.md',
         '/path/to/ext3/context2.md',
       ],
@@ -625,7 +625,7 @@ describe('Hierarchical Memory Loading (config.ts) - Placeholder Suite', () => {
   /*
   it('should correctly use mocked homedir for global path', async () => {
     const MOCK_GEMINI_DIR_LOCAL = path.join('/mock/home/user', '.qwen');
-    const MOCK_GLOBAL_PATH_LOCAL = path.join(MOCK_GEMINI_DIR_LOCAL, 'QWEN.md');
+    const MOCK_GLOBAL_PATH_LOCAL = path.join(MOCK_GEMINI_DIR_LOCAL, 'LLAMA.md');
     mockFs({
       [MOCK_GLOBAL_PATH_LOCAL]: { type: 'file', content: 'GlobalContentOnly' }
     });
@@ -693,7 +693,7 @@ describe('loadCliConfig systemPromptMappings', () => {
           'https://dashscope.aliyuncs.com/compatible-mode/v1/',
           'https://dashscope-intl.aliyuncs.com/compatible-mode/v1/',
         ],
-        modelNames: ['qwen3-coder-plus'],
+        modelNames: ['Llama-4-Maverick-17B-128E-Instruct-FP8'],
         template:
           'SYSTEM_TEMPLATE:{"name":"qwen3_coder","params":{"is_git_repository":{RUNTIME_VARS_IS_GIT_REPO},"sandbox":"{RUNTIME_VARS_SANDBOX}"}}',
       },
@@ -1332,14 +1332,14 @@ describe('loadCliConfig model selection', () => {
     const argv = await parseArguments();
     const config = await loadCliConfig(
       {
-        model: 'qwen3-coder-plus',
+        model: 'Llama-4-Maverick-17B-128E-Instruct-FP8',
       },
       [],
       'test-session',
       argv,
     );
 
-    expect(config.getModel()).toBe('qwen3-coder-plus');
+    expect(config.getModel()).toBe('Llama-4-Maverick-17B-128E-Instruct-FP8');
   });
 
   it('uses the default gemini model if nothing is set', async () => {
@@ -1354,26 +1354,26 @@ describe('loadCliConfig model selection', () => {
       argv,
     );
 
-    expect(config.getModel()).toBe('qwen3-coder-plus');
+    expect(config.getModel()).toBe('Llama-4-Maverick-17B-128E-Instruct-FP8');
   });
 
   it('always prefers model from argvs', async () => {
-    process.argv = ['node', 'script.js', '--model', 'qwen3-coder-plus'];
+    process.argv = ['node', 'script.js', '--model', 'Llama-4-Maverick-17B-128E-Instruct-FP8'];
     const argv = await parseArguments();
     const config = await loadCliConfig(
       {
-        model: 'qwen3-coder-plus',
+        model: 'Llama-4-Maverick-17B-128E-Instruct-FP8',
       },
       [],
       'test-session',
       argv,
     );
 
-    expect(config.getModel()).toBe('qwen3-coder-plus');
+    expect(config.getModel()).toBe('Llama-4-Maverick-17B-128E-Instruct-FP8');
   });
 
   it('selects the model from argvs if provided', async () => {
-    process.argv = ['node', 'script.js', '--model', 'qwen3-coder-plus'];
+    process.argv = ['node', 'script.js', '--model', 'Llama-4-Maverick-17B-128E-Instruct-FP8'];
     const argv = await parseArguments();
     const config = await loadCliConfig(
       {
@@ -1384,7 +1384,7 @@ describe('loadCliConfig model selection', () => {
       argv,
     );
 
-    expect(config.getModel()).toBe('qwen3-coder-plus');
+    expect(config.getModel()).toBe('Llama-4-Maverick-17B-128E-Instruct-FP8');
   });
 });
 

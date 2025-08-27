@@ -37,7 +37,7 @@ const memoryToolSchemaData: FunctionDeclaration = {
       scope: {
         type: 'string',
         description:
-          'Where to save the memory: "global" saves to user-level ~/.qwen/QWEN.md (shared across all projects), "project" saves to current project\'s QWEN.md (project-specific). If not specified, will prompt user to choose.',
+          'Where to save the memory: "global" saves to user-level ~/.qwen/LLAMA.md (shared across all projects), "project" saves to current project\'s LLAMA.md (project-specific). If not specified, will prompt user to choose.',
         enum: ['global', 'project'],
       },
     },
@@ -63,16 +63,16 @@ Do NOT use this tool:
 
 - \`fact\` (string, required): The specific fact or piece of information to remember. This should be a clear, self-contained statement. For example, if the user says "My favorite color is blue", the fact would be "My favorite color is blue".
 - \`scope\` (string, optional): Where to save the memory:
-  - "global": Saves to user-level ~/.qwen/QWEN.md (shared across all projects)
-  - "project": Saves to current project's QWEN.md (project-specific)
+  - "global": Saves to user-level ~/.qwen/LLAMA.md (shared across all projects)
+  - "project": Saves to current project's LLAMA.md (project-specific)
   - If not specified, the tool will ask the user where they want to save the memory.
 `;
 
 export const GEMINI_CONFIG_DIR = '.qwen';
-export const DEFAULT_CONTEXT_FILENAME = 'QWEN.md';
+export const DEFAULT_CONTEXT_FILENAME = 'LLAMA.md';
 export const MEMORY_SECTION_HEADER = '## Qwen Added Memories';
 
-// This variable will hold the currently configured filename for QWEN.md context files.
+// This variable will hold the currently configured filename for LLAMA.md context files.
 // It defaults to DEFAULT_CONTEXT_FILENAME but can be overridden by setGeminiMdFilename.
 let currentGeminiMdFilename: string | string[] = DEFAULT_CONTEXT_FILENAME;
 
@@ -282,7 +282,7 @@ class MemoryToolInvocation extends BaseToolInvocation<
     // If scope is not specified, prompt the user to choose
     if (!this.params.scope) {
       const errorMessage =
-        'Please specify where to save this memory. Use scope parameter: "global" for user-level (~/.qwen/QWEN.md) or "project" for current project (./QWEN.md).';
+        'Please specify where to save this memory. Use scope parameter: "global" for user-level (~/.qwen/LLAMA.md) or "project" for current project (./LLAMA.md).';
       return {
         llmContent: JSON.stringify({ success: false, error: errorMessage }),
         returnDisplay: `${errorMessage}\n\nGlobal: ${tildeifyPath(getMemoryFilePath('global'))}\nProject: ${tildeifyPath(getMemoryFilePath('project'))}`,

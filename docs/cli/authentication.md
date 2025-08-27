@@ -112,7 +112,7 @@ mkdir -p ~/.qwen
 cat >> ~/.qwen/.env <<'EOF'
 LLAMA_API_KEY="your-api-key"
 LLAMA_API_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
-LLAMA_API_MODEL="qwen3-coder-plus"
+LLAMA_API_MODEL="Llama-4-Maverick-17B-128E-Instruct-FP8"
 EOF
 ```
 

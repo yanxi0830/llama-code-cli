@@ -140,7 +140,7 @@ export function createContentGeneratorConfig(
     // Set a special marker to indicate this is Qwen OAuth
     contentGeneratorConfig.apiKey = 'QWEN_OAUTH_DYNAMIC_TOKEN';
 
-    // Prefer to use qwen3-coder-plus as the default Qwen model if QWEN_MODEL is not set.
+    // Prefer to use Llama-4-Maverick-17B-128E-Instruct-FP8 as the default Qwen model if QWEN_MODEL is not set.
     contentGeneratorConfig.model = process.env.QWEN_MODEL || DEFAULT_QWEN_MODEL;
 
     return contentGeneratorConfig;

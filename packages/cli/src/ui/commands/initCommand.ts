@@ -16,7 +16,7 @@ import { getCurrentGeminiMdFilename } from '@qwen-code/qwen-code-core';
 
 export const initCommand: SlashCommand = {
   name: 'init',
-  description: 'Analyzes the project and creates a tailored QWEN.md file.',
+  description: 'Analyzes the project and creates a tailored LLAMA.md file.',
   kind: CommandKind.BUILT_IN,
   action: async (
     context: CommandContext,

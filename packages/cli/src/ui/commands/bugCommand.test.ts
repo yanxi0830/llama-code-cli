@@ -42,7 +42,7 @@ describe('bugCommand', () => {
     const mockContext = createMockCommandContext({
       services: {
         config: {
-          getModel: () => 'qwen3-coder-plus',
+          getModel: () => 'Llama-4-Maverick-17B-128E-Instruct-FP8',
           getBugCommand: () => undefined,
         },
       },
@@ -56,7 +56,7 @@ describe('bugCommand', () => {
 * **Git Commit:** ${GIT_COMMIT_INFO}
 * **Operating System:** test-platform v20.0.0
 * **Sandbox Environment:** test
-* **Model Version:** qwen3-coder-plus
+* **Model Version:** Llama-4-Maverick-17B-128E-Instruct-FP8
 * **Memory Usage:** 100 MB
 `;
     const expectedUrl =
@@ -72,7 +72,7 @@ describe('bugCommand', () => {
     const mockContext = createMockCommandContext({
       services: {
         config: {
-          getModel: () => 'qwen3-coder-plus',
+          getModel: () => 'Llama-4-Maverick-17B-128E-Instruct-FP8',
           getBugCommand: () => ({ urlTemplate: customTemplate }),
         },
       },
@@ -86,7 +86,7 @@ describe('bugCommand', () => {
 * **Git Commit:** ${GIT_COMMIT_INFO}
 * **Operating System:** test-platform v20.0.0
 * **Sandbox Environment:** test
-* **Model Version:** qwen3-coder-plus
+* **Model Version:** Llama-4-Maverick-17B-128E-Instruct-FP8
 * **Memory Usage:** 100 MB
 `;
     const expectedUrl = customTemplate

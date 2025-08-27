@@ -1,13 +1,8 @@
-# Qwen Code
+# Llama Code CLI
 
 <div align="center">
 
-![Qwen Code Screenshot](./docs/assets/qwen-screenshot.png)
-
-[![npm version](https://img.shields.io/npm/v/llama-code-cli.svg)](https://www.npmjs.com/package/llama-code-cli)
-[![License](https://img.shields.io/github/license/QwenLM/qwen-code.svg)](./LICENSE)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org/)
-[![Downloads](https://img.shields.io/npm/dm/llama-code-cli.svg)](https://www.npmjs.com/package/llama-code-cli)
+![Llama Code Screenshot](./docs/assets/llama-screenshot.png)
 
 **AI-powered command-line workflow tool for developers**
 
@@ -15,49 +10,13 @@
 
 </div>
 
-<div align="center">
-  
-  <!-- Keep these links. Translations will automatically update with the README. -->
-  <a href="https://readme-i18n.com/de/QwenLM/qwen-code">Deutsch</a> | 
-  <a href="https://readme-i18n.com/es/QwenLM/qwen-code">Español</a> | 
-  <a href="https://readme-i18n.com/fr/QwenLM/qwen-code">français</a> | 
-  <a href="https://readme-i18n.com/ja/QwenLM/qwen-code">日本語</a> | 
-  <a href="https://readme-i18n.com/ko/QwenLM/qwen-code">한국어</a> | 
-  <a href="https://readme-i18n.com/pt/QwenLM/qwen-code">Português</a> | 
-  <a href="https://readme-i18n.com/ru/QwenLM/qwen-code">Русский</a> | 
-  <a href="https://readme-i18n.com/zh/QwenLM/qwen-code">中文</a>
-  
-</div>
+Llama Code is a powerful command-line AI workflow tool adapted from [**Qwen Code**](https://github.com/QwenLM/qwen-code/tree/main), which is adapter from [**Gemini CLI**](https://github.com/google-gemini/gemini-cli) ([details](./README.gemini.md)). It enhances your development workflow with advanced code understanding, automated tasks, and intelligent assistance.
 
-Qwen Code is a powerful command-line AI workflow tool adapted from [**Gemini CLI**](https://github.com/google-gemini/gemini-cli) ([details](./README.gemini.md)), specifically optimized for [Qwen3-Coder](https://github.com/QwenLM/Qwen3-Coder) models. It enhances your development workflow with advanced code understanding, automated tasks, and intelligent assistance.
-
-## 💡 Free Options Available
-
-Get started with Qwen Code at no cost using any of these free options:
-
-### 🔥 Qwen OAuth (Recommended)
-
-- **2,000 requests per day** with no token limits
-- **60 requests per minute** rate limit
-- Simply run `llama` and authenticate with your qwen.ai account
-- Automatic credential management and refresh
-- Use `/auth` command to switch to Qwen OAuth if you have initialized with OpenAI compatible mode
-
-### 🌏 Regional Free Tiers
-
-- **Mainland China**: ModelScope offers **2,000 free API calls per day**
-- **International**: OpenRouter provides **up to 1,000 free API calls per day** worldwide
-
-For detailed setup instructions, see [Authorization](#authorization).
-
-> [!WARNING]
-> **Token Usage Notice**: Qwen Code may issue multiple API calls per cycle, resulting in higher token usage (similar to Claude Code). We're actively optimizing API efficiency.
 
 ## Key Features
 
 - **Code Understanding & Editing** - Query and edit large codebases beyond traditional context window limits
 - **Workflow Automation** - Automate operational tasks like handling pull requests and complex rebases
-- **Enhanced Parser** - Adapted parser specifically optimized for Qwen-Coder models
 
 ## Installation
 
@@ -69,18 +28,11 @@ Ensure you have [Node.js version 20](https://nodejs.org/en/download) or higher i
 curl -qL https://www.npmjs.com/install.sh | sh
 ```
 
-### Install from npm
-
-```bash
-npm install -g llama-code-cli@latest
-llama --version
-```
-
 ### Install from source
 
 ```bash
-git clone https://github.com/QwenLM/qwen-code.git
-cd qwen-code
+git clone git@github.com:yanxi0830/llama-code-cli.git
+cd llama-code-cli
 npm install
 npm install -g .
 ```
@@ -88,7 +40,7 @@ npm install -g .
 ## Quick Start
 
 ```bash
-# Start Qwen Code
+# Start Llama Code
 llama
 
 # Example commands
@@ -123,31 +75,7 @@ Create or edit `.llama/settings.json` in your home directory:
 
 Choose your preferred authentication method based on your needs:
 
-#### 1. Qwen OAuth (🚀 Recommended - Start in 30 seconds)
-
-The easiest way to get started - completely free with generous quotas:
-
-```bash
-# Just run this command and follow the browser authentication
-llama
-```
-
-**What happens:**
-
-1. **Instant Setup**: CLI opens your browser automatically
-2. **One-Click Login**: Authenticate with your qwen.ai account
-3. **Automatic Management**: Credentials cached locally for future use
-4. **No Configuration**: Zero setup required - just start coding!
-
-**Free Tier Benefits:**
-
-- ✅ **2,000 requests/day** (no token counting needed)
-- ✅ **60 requests/minute** rate limit
-- ✅ **Automatic credential refresh**
-- ✅ **Zero cost** for individual users
-- ℹ️ **Note**: Model fallback may occur to maintain service quality
-
-#### 2. OpenAI-Compatible API
+#### OpenAI-Compatible API
 
 Use API keys for OpenAI or other compatible providers:
 
@@ -168,58 +96,6 @@ Use API keys for OpenAI or other compatible providers:
    LLAMA_API_BASE_URL=your_api_endpoint
    LLAMA_API_MODEL=your_model_choice
    ```
-
-**API Provider Options**
-
-> ⚠️ **Regional Notice:**
->
-> - **Mainland China**: Use Alibaba Cloud Bailian or ModelScope
-> - **International**: Use Alibaba Cloud ModelStudio or OpenRouter
-
-<details>
-<summary><b>🇨🇳 For Users in Mainland China</b></summary>
-
-**Option 1: Alibaba Cloud Bailian** ([Apply for API Key](https://bailian.console.aliyun.com/))
-
-```bash
-export LLAMA_API_KEY="your_api_key_here"
-export LLAMA_API_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
-export LLAMA_API_MODEL="qwen3-coder-plus"
-```
-
-**Option 2: ModelScope (Free Tier)** ([Apply for API Key](https://modelscope.cn/docs/model-service/API-Inference/intro))
-
-- ✅ **2,000 free API calls per day**
-- ⚠️ Connect your Aliyun account to avoid authentication errors
-
-```bash
-export LLAMA_API_KEY="your_api_key_here"
-export LLAMA_API_BASE_URL="https://api-inference.modelscope.cn/v1"
-export LLAMA_API_MODEL="Qwen/Qwen3-Coder-480B-A35B-Instruct"
-```
-
-</details>
-
-<details>
-<summary><b>🌍 For International Users</b></summary>
-
-**Option 1: Alibaba Cloud ModelStudio** ([Apply for API Key](https://modelstudio.console.alibabacloud.com/))
-
-```bash
-export LLAMA_API_KEY="your_api_key_here"
-export LLAMA_API_BASE_URL="https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
-export LLAMA_API_MODEL="qwen3-coder-plus"
-```
-
-**Option 2: OpenRouter (Free Tier Available)** ([Apply for API Key](https://openrouter.ai/))
-
-```bash
-export LLAMA_API_KEY="your_api_key_here"
-export LLAMA_API_BASE_URL="https://openrouter.ai/api/v1"
-export LLAMA_API_MODEL="qwen/qwen3-coder:free"
-```
-
-</details>
 
 ## Usage Examples
 
@@ -333,20 +209,9 @@ llama
 - `Ctrl+D` - Exit (on empty line)
 - `Up/Down` - Navigate command history
 
-## Benchmark Results
-
-### Terminal-Bench Performance
-
-| Agent     | Model              | Accuracy |
-| --------- | ------------------ | -------- |
-| Qwen Code | Qwen3-Coder-480A35 | 37.5%    |
-| Qwen Code | Qwen3-Coder-30BA3B | 31.3%    |
-
 ## Development & Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) to learn how to contribute to the project.
-
-For detailed authentication setup, see the [authentication guide](./docs/cli/authentication.md).
 
 ## Troubleshooting
 
@@ -354,12 +219,8 @@ If you encounter issues, check the [troubleshooting guide](docs/troubleshooting.
 
 ## Acknowledgments
 
-This project is based on [Google Gemini CLI](https://github.com/google-gemini/gemini-cli). We acknowledge and appreciate the excellent work of the Gemini CLI team. Our main contribution focuses on parser-level adaptations to better support Qwen-Coder models.
+This project is based on [Qwen Code](https://github.com/QwenLM/qwen-code/tree/main), which is based on [Google Gemini CLI](https://github.com/google-gemini/gemini-cli). 
 
 ## License
 
 [LICENSE](./LICENSE)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=QwenLM/qwen-code&type=Date)](https://www.star-history.com/#QwenLM/qwen-code&Date)
