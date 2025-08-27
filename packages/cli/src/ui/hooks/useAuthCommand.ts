@@ -20,7 +20,7 @@ export const useAuthCommand = (
   config: Config,
 ) => {
   const [isAuthDialogOpen, setIsAuthDialogOpen] = useState(
-    settings.merged.selectedAuthType === undefined,
+    false, // Never show auth dialog by default
   );
 
   const openAuthDialog = useCallback(() => {
@@ -31,8 +31,9 @@ export const useAuthCommand = (
 
   useEffect(() => {
     const authFlow = async () => {
-      const authType = settings.merged.selectedAuthType;
-      if (isAuthDialogOpen || !authType) {
+      // Default to OpenAI if no auth type is selected
+      const authType = settings.merged.selectedAuthType || AuthType.USE_OPENAI;
+      if (isAuthDialogOpen) {
         return;
       }
 

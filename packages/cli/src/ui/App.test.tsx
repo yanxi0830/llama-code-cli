@@ -637,7 +637,10 @@ describe('App UI', () => {
 
   it('should display default "LLAMA.md" with plural when contextFileName is not set and count is > 1', async () => {
     mockConfig.getGeminiMdFileCount.mockReturnValue(2);
-    mockConfig.getAllGeminiMdFilenames.mockReturnValue(['LLAMA.md', 'LLAMA.md']);
+    mockConfig.getAllGeminiMdFilenames.mockReturnValue([
+      'LLAMA.md',
+      'LLAMA.md',
+    ]);
     mockConfig.getDebugMode.mockReturnValue(false);
     mockConfig.getShowMemoryUsage.mockReturnValue(false);
 
@@ -749,7 +752,10 @@ describe('App UI', () => {
 
   it('should display LLAMA.md and MCP server count when both are present', async () => {
     mockConfig.getGeminiMdFileCount.mockReturnValue(2);
-    mockConfig.getAllGeminiMdFilenames.mockReturnValue(['LLAMA.md', 'LLAMA.md']);
+    mockConfig.getAllGeminiMdFilenames.mockReturnValue([
+      'LLAMA.md',
+      'LLAMA.md',
+    ]);
     mockConfig.getMcpServers.mockReturnValue({
       server1: {} as MCPServerConfig,
     });

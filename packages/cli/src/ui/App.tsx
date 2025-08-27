@@ -277,11 +277,17 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
   } = useQwenAuth(settings, isAuthenticating);
 
   useEffect(() => {
-    if (settings.merged.selectedAuthType && !settings.merged.useExternalAuth) {
-      const error = validateAuthMethod(settings.merged.selectedAuthType);
+    // Default to OpenAI if no auth type is selected
+    const authType = settings.merged.selectedAuthType || AuthType.USE_OPENAI;
+    if (!settings.merged.useExternalAuth) {
+      const error = validateAuthMethod(authType);
       if (error) {
         setAuthError(error);
-        openAuthDialog();
+        // Only open dialog if there's an actual error with authentication
+        // Don't open it just because no auth type was selected
+        if (settings.merged.selectedAuthType) {
+          openAuthDialog();
+        }
       }
     }
   }, [

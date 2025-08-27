@@ -1358,7 +1358,12 @@ describe('loadCliConfig model selection', () => {
   });
 
   it('always prefers model from argvs', async () => {
-    process.argv = ['node', 'script.js', '--model', 'Llama-4-Maverick-17B-128E-Instruct-FP8'];
+    process.argv = [
+      'node',
+      'script.js',
+      '--model',
+      'Llama-4-Maverick-17B-128E-Instruct-FP8',
+    ];
     const argv = await parseArguments();
     const config = await loadCliConfig(
       {
@@ -1373,7 +1378,12 @@ describe('loadCliConfig model selection', () => {
   });
 
   it('selects the model from argvs if provided', async () => {
-    process.argv = ['node', 'script.js', '--model', 'Llama-4-Maverick-17B-128E-Instruct-FP8'];
+    process.argv = [
+      'node',
+      'script.js',
+      '--model',
+      'Llama-4-Maverick-17B-128E-Instruct-FP8',
+    ];
     const argv = await parseArguments();
     const config = await loadCliConfig(
       {

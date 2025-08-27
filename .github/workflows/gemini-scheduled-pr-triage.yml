@@ -1,4 +1,4 @@
-name: 'Qwen Scheduled PR Triage 🚀'
+name: 'Llama Scheduled PR Triage 🚀'
 
 on:
   schedule:
@@ -9,7 +9,7 @@ jobs:
   audit-prs:
     timeout-minutes: 15
     if: |-
-      ${{ github.repository == 'QwenLM/qwen-code' }}
+      ${{ github.repository == 'yanxi0830/llama-code-cli' }}
     permissions:
       contents: 'read'
       id-token: 'write'

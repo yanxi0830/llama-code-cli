@@ -1,4 +1,4 @@
-name: 'Qwen Automated Issue Triage'
+name: 'Llama Automated Issue Triage'
 
 on:
   issues:

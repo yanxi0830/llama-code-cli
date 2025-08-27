@@ -578,7 +578,10 @@ export async function start_sandbox(
       args.push('--env', `TAVILY_API_KEY=${process.env.TAVILY_API_KEY}`);
     }
     if (process.env.LLAMA_API_BASE_URL) {
-      args.push('--env', `LLAMA_API_BASE_URL=${process.env.LLAMA_API_BASE_URL}`);
+      args.push(
+        '--env',
+        `LLAMA_API_BASE_URL=${process.env.LLAMA_API_BASE_URL}`,
+      );
     }
     if (process.env.LLAMA_API_MODEL) {
       args.push('--env', `LLAMA_API_MODEL=${process.env.LLAMA_API_MODEL}`);

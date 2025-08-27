@@ -5,7 +5,6 @@
  */
 
 import { AuthType, Config } from '@qwen-code/qwen-code-core';
-import { USER_SETTINGS_PATH } from './config/settings.js';
 import { validateAuthMethod } from './config/auth.js';
 
 function getAuthTypeFromEnv(): AuthType | undefined {
@@ -32,14 +31,11 @@ export async function validateNonInteractiveAuth(
   useExternalAuth: boolean | undefined,
   nonInteractiveConfig: Config,
 ) {
-  const effectiveAuthType = configuredAuthType || getAuthTypeFromEnv();
+  // Default to OpenAI if no auth type is configured
+  const effectiveAuthType =
+    configuredAuthType || getAuthTypeFromEnv() || AuthType.USE_OPENAI;
 
-  if (!effectiveAuthType) {
-    console.error(
-      `Please set an Auth method in your ${USER_SETTINGS_PATH} or specify one of the following environment variables before running: GEMINI_API_KEY, LLAMA_API_KEY, GOOGLE_GENAI_USE_VERTEXAI, GOOGLE_GENAI_USE_GCA`,
-    );
-    process.exit(1);
-  }
+  // No longer exit if no auth type is found, since we default to OpenAI
 
   if (!useExternalAuth) {
     const err = validateAuthMethod(effectiveAuthType);

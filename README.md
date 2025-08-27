@@ -12,7 +12,6 @@
 
 Llama Code is a powerful command-line AI workflow tool adapted from [**Qwen Code**](https://github.com/QwenLM/qwen-code/tree/main), which is adapter from [**Gemini CLI**](https://github.com/google-gemini/gemini-cli) ([details](./README.gemini.md)). It enhances your development workflow with advanced code understanding, automated tasks, and intelligent assistance.
 
-
 ## Key Features
 
 - **Code Understanding & Editing** - Query and edit large codebases beyond traditional context window limits
@@ -219,7 +218,7 @@ If you encounter issues, check the [troubleshooting guide](docs/troubleshooting.
 
 ## Acknowledgments
 
-This project is based on [Qwen Code](https://github.com/QwenLM/qwen-code/tree/main), which is based on [Google Gemini CLI](https://github.com/google-gemini/gemini-cli). 
+This project is based on [Qwen Code](https://github.com/QwenLM/qwen-code/tree/main), which is based on [Google Gemini CLI](https://github.com/google-gemini/gemini-cli).
 
 ## License
 

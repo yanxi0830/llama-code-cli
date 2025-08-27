@@ -1,4 +1,4 @@
-name: 'Qwen Scheduled Issue Triage'
+name: 'Llama Scheduled Issue Triage'
 
 on:
   schedule:
